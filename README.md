@@ -1,53 +1,49 @@
-📈 NSE Market Intelligence Suite
-An Institutional Flow Analysis & Predictive Short-Covering Model
+# 📈 NSE Market Intelligence Suite: Institutional Flow & Sentiment Dashboard
 
-🎯 Project Objective
-A high-performance financial data engineering pipeline designed to analyze institutional activity and volatility metrics within the National Stock Exchange (NSE) of India. This project identifies extreme institutional selling streaks that historically precede "Short-Covering" market rallies.
+## 🎯 Project Objective
+A high-performance financial data engineering pipeline designed to analyze institutional activity (FII/DII) and price action within the National Stock Exchange (NSE) of India. This project tracks extreme institutional selling streaks and visualizes market sentiment to provide actionable trading intelligence.
 
-🛠️ The Tech Stack
-Languages: Python 3.10
+## 🛠️ The Tech Stack
+* **Languages:** Python 3.10
+* **Data Engineering:** Pandas (ETL, Data Wrangling, Relational Merges)
+* **Visualization:** Plotly Graph Objects & Subplots (Interactive Dual-Axis Dashboards)
+* **Environment:** VS Code + Jupyter Notebooks
+* **Infrastructure:** Local Git Repository -> GitHub
 
-Libraries: Pandas (Data Wrangling), Matplotlib (Visualization)
+## 📡 Data Strategy
+* **Primary Sources:** NSE / MoneyControl (Institutional Equity Cash Flow) & Nifty 50 Historical Prices.
+* **Frequency:** Daily Automated Pipeline (Post-market updates).
+* **Master Database:** A unified, sanitized CSV containing merged historical logs from Jan 2026 to Present.
 
-Environment: VS Code + Jupyter Notebooks
+## 🏗️ Project Architecture (Current Progress: Day 6)
 
-Infrastructure: Local Git Repository
+### Phase 1: Data Engineering (COMPLETED)
+* **ETL Pipeline:** Built a robust cleaning engine to bypass raw data formatting issues. The script automatically handles:
+  * Removal of currency commas and whitespace stripping.
+  * Type conversion from Strings to Numeric floats.
+  * Automated skipping of junk website headers and `NaN` handling.
+* **Relational Data Merge:** Engineered an `inner join` using Pandas to seamlessly zipper daily Nifty 50 closing prices with institutional flow data.
+* **Incremental Logic:** Developed an automated "Daily Update" engine that ingests staging files, removes duplicates, and overwrites the `master_database.csv`—acting as the "Single Source of Truth."
 
-📡 Data Strategy
-Primary Source: MoneyControl (Institutional Equity Cash Flow)
+### Phase 2: Intelligence & Visualization (COMPLETED)
+* **Interactive Market Dashboard:** Upgraded from static Matplotlib to a dynamic Plotly dashboard featuring a dual-axis layout (Bar charts for Crores, Line charts for Index points) with unified hover-tooltips.
+* **Proprietary Signal Logic:** * **Streak Counter:** A custom Python function that iterates through time-series data to calculate consecutive days of institutional buying or selling.
+  * **Net Sentiment Gauge:** An automated calculator that measures the "Tug-of-War" between FIIs and DIIs to output a daily Bullish/Bearish market sentiment alert.
 
-Frequency: Daily Incremental Updates (11:00 PM IST)
-
-Master Database: A unified, sanitized CSV containing historical logs from Jan 2026 to Present.
-
-🏗️ Project Architecture (Current Progress: Day 3/16)
-Phase 1: Engineering (COMPLETED)
-ETL Pipeline: Built a robust cleaning engine to bypass MoneyControl's formatting. The script automatically handles:
-
-Removal of currency commas and whitespace.
-
-Type conversion from Strings to Numeric floats.
-
-Automated skipping of junk website headers.
-
-Master Database: Initialized fii_dii_master_database.csv. This serves as the "Single Source of Truth" for the analysis.
-
-Incremental Logic: Developed an "Append Engine" that merges daily trading logs while using drop_duplicates logic to ensure data integrity across multiple source months.
-
-📂 Repository Structure
-Plaintext
+## 📂 Repository Structure
+```text
 ├── data/
-│   ├── fii_dii_master_database.csv  <-- Unified history (Jan-Mar)
+│   ├── fii_dii_master_database.csv  <-- Unified history & Nifty prices
+│   ├── nifty50.csv                  <-- Raw index closing prices
 │   ├── fii_history_2026-02.csv      <-- Original Feb history
 │   ├── fii_raw_jan_2026.csv         <-- Jan staging file
 │   └── fii_raw_march_2026.csv       <-- March staging file
 ├── notebooks/
-│   └── 03_fii_dii_master.ipynb      <-- Primary Ingestion & Analysis Engine
+│   └── 03_fii_dii_master.ipynb      <-- Primary Engine (ETL, Merge, Visuals, Logic)
 └── README.md
+🚀 Upcoming Milestones
+Day 7: Codebase optimization and portfolio clean-up.
 
-🚀 Upcoming Milestones (Phase 2: Intelligence)
-Day 4: Visualizing Institutional Momentum (FII vs DII Bar Charts).
+Day 8-10: Calculating the "Volatility Gauge" to flag outlier panic days.
 
-Day 5-6: Building the "Streak Counter" to identify 3+ days of consecutive FII selling.
-
-Day 7: Calculating the "Volatility Gauge" to flag outlier panic days.
+Phase 3+: Transitioning this structured database into a Machine Learning predictive model (Scikit-Learn).
