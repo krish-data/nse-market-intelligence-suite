@@ -1,6 +1,7 @@
 # 📈 NSE Market Intelligence Suite: Institutional Flow & Sentiment Dashboard
 
 ## 🎯 Project Objective
+![Live Market Impact Dashboard](dashboard.png)
 A high-performance financial data engineering pipeline designed to analyze institutional activity (FII/DII) and price action within the National Stock Exchange (NSE) of India. This project tracks extreme institutional selling streaks and visualizes market sentiment to provide actionable trading intelligence.
 
 ## 🛠️ The Tech Stack
@@ -15,7 +16,7 @@ A high-performance financial data engineering pipeline designed to analyze insti
 * **Frequency:** Daily Automated Pipeline (Post-market updates).
 * **Master Database:** A unified, sanitized CSV containing merged historical logs from Jan 2026 to Present.
 
-## 🏗️ Project Architecture (Current Progress: Day 6)
+## 🏗️ Project Architecture (Current Progress: Day 7)
 
 ### Phase 1: Data Engineering (COMPLETED)
 * **ETL Pipeline:** Built a robust cleaning engine to bypass raw data formatting issues. The script automatically handles:
@@ -29,6 +30,7 @@ A high-performance financial data engineering pipeline designed to analyze insti
 * **Interactive Market Dashboard:** Upgraded from static Matplotlib to a dynamic Plotly dashboard featuring a dual-axis layout (Bar charts for Crores, Line charts for Index points) with unified hover-tooltips.
 * **Proprietary Signal Logic:** * **Streak Counter:** A custom Python function that iterates through time-series data to calculate consecutive days of institutional buying or selling.
   * **Net Sentiment Gauge:** An automated calculator that measures the "Tug-of-War" between FIIs and DIIs to output a daily Bullish/Bearish market sentiment alert.
+  * **Volatility Gauge (Z-Score):** A statistical algorithm calculating the standard deviation of FII cash flow to identify extreme mathematical anomalies (e.g., Z-scores of -2.0+ indicating panic sell-offs).
 
 ## 📂 Repository Structure
 ```text
@@ -40,10 +42,5 @@ A high-performance financial data engineering pipeline designed to analyze insti
 │   └── fii_raw_march_2026.csv       <-- March staging file
 ├── notebooks/
 │   └── 03_fii_dii_master.ipynb      <-- Primary Engine (ETL, Merge, Visuals, Logic)
+├── dashboard.png                    <-- Static Hero Image for GitHub rendering
 └── README.md
-🚀 Upcoming Milestones
-Day 7: Codebase optimization and portfolio clean-up.
-
-Day 8-10: Calculating the "Volatility Gauge" to flag outlier panic days.
-
-Phase 3+: Transitioning this structured database into a Machine Learning predictive model (Scikit-Learn).
