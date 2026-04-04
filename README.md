@@ -2,9 +2,7 @@
 **Automated Institutional Flow (FII/DII) Tracker & Predictive Bounce Model**
 
 ## 🎯 Project Overview
-![Dark-Mode Market Impact Dashboard](dashboard.png)
-
-This project is an end-to-end data pipeline and machine learning model designed to track "Smart Money" in the Indian Stock Market (NSE). It automatically ingests daily Foreign and Domestic Institutional cash flows, calculates statistical volatility, and uses a Random Forest classifier to predict high-probability short-covering bounces during market panics. 
+![Dark-Mode Market Impact Dashboard](dashboard.png) This project is an end-to-end data pipeline and machine learning model designed to track "Smart Money" in the Indian Stock Market (NSE). It automatically ingests daily Foreign and Domestic Institutional cash flows, calculates statistical volatility, and uses a Random Forest classifier to predict high-probability short-covering bounces during market panics. 
 
 This project demonstrates my ability to handle dirty financial data, build interactive dashboards, and deploy predictive analytics.
 
@@ -28,8 +26,8 @@ This project demonstrates my ability to handle dirty financial data, build inter
 │   ├── nifty50.csv                  <-- Raw index closing prices
 │   ├── fii_history_2026-02.csv      
 │   ├── fii_raw_jan_2026.csv         
-│   └── fii_raw_march_2026.csv       
+│   └── fii_raw_mar_2026.csv         
 ├── notebooks/
 │   └── 03_fii_dii_master.ipynb      <-- Primary Engine (ETL, ML, Visuals, Logic)
-├── dashboard.png                    <-- Static Hero Image for GitHub rendering
+├── dark_chart.png                   <-- Static Hero Image for GitHub rendering
 └── README.md
