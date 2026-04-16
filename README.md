@@ -1,5 +1,5 @@
 # 📊 NSE Market Intelligence Suite
-**Automated Institutional Flow (FII/DII) Tracker & Predictive Bounce Model**
+**FII/DII Market Flow Tracker & Prediction Model**
 
 ## 🎯 Project Overview
 ![Dark-Mode Market Impact Dashboard](dashboard.png) This project is an end-to-end data pipeline and machine learning model designed to track "Smart Money" in the Indian Stock Market (NSE). It automatically ingests daily Foreign and Domestic Institutional cash flows, calculates statistical volatility, and uses a Random Forest classifier to predict high-probability short-covering bounces during market panics. 
